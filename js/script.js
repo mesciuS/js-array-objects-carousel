@@ -41,3 +41,8 @@ const images = [
 
 // Milestone 2:
 // Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
+
+// - prendo gli elementi html con ID
+const upEl = document.getElementById("up");
+const downEl = document.getElementById("down");
+const activeImgEl = document.getElementById("active-img");
