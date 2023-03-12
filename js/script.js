@@ -39,8 +39,6 @@ const images = [
 // Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l'immagine grande in modo da poter stilare lo slider.
 
 
-// Milestone 2:
-// Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
 
 // - prendo gli elementi html con ID
 const upEl = document.getElementById("up");
@@ -56,34 +54,64 @@ const descriptionEl = document.getElementById("description");
 let index = 0;
 
 downEl.addEventListener('click', function(){
+    
+    // index++;
 
-    index++;
-
+    index = updateIndex(index, 'giu');
+    
     showSlide(images[index]);
-
-
+    
+    
 });
 
 upEl.addEventListener('click', function(){
+    
+    // index--;
 
-    index--;
-
+    index = updateIndex(index, 'su');
+    
     showSlide(images[index]);
-
-
+    
+    
 });
+
+
+
+
 
 // FUNZIONI
 showSlide(images[index]);
 
 function showSlide(carousel) {
-
+    
     // console.log(carousel);
-
+    
     activeImgEl.src = carousel.image;
-
+    
     titleEl.innerText = carousel.title;
-
+    
     descriptionEl.innerText = carousel.text;
-
+    
 };  
+
+// Milestone 2:
+// Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
+function updateIndex(attuale, direzione) {
+
+    if(direzione == 'su') {
+
+        if(attuale <= 0) {
+            return images.length - 1;
+        } else {
+            return attuale - 1;
+        }
+
+    } else {
+        
+        if(attuale >= images.length-1) {
+            return 0;
+        } else {
+            return attuale + 1;
+        }
+    }
+};
