@@ -19,8 +19,8 @@
 #img-container {
     width: 100%;
     height: 100%;
+    position: relative;
 
-    background-color: aqua;
 }
 
 #active-img {
@@ -28,6 +28,20 @@
     height: 100%;
 
     object-fit: cover;
+}
+
+#txt-container {
+    position: absolute;
+    bottom: 0;
+
+    padding: 30px;
+    
+    width: 100%;
+
+    color: white;
+    text-align: right;
+
+    text-shadow: 2px 2px black;
 }
 
 #thumb {
@@ -39,6 +53,13 @@
 #up, #down {
     position: absolute;
     left: 50%;
+
+    font-size: 2em;
+    color: white;
+
+    z-index: 2;
+
+    cursor: pointer;
 }
 
 #up {

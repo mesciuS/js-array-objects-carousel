@@ -1,7 +1,7 @@
 const images = [
     {
         image: 'img/01.webp',
-        title: 'Marvel\'s Spiderman Miles Morale',
+        title: 'Marvel\'s Spiderman Miles Morales',
         text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
     }, 
     {
@@ -26,6 +26,8 @@ const images = [
     }
 ];
 
+
+
 // Consegna:
 // Dato un array di oggetti letterali con:
 //  - url dell’immagine
@@ -36,8 +38,6 @@ const images = [
 // Milestone 0:
 // Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l'immagine grande in modo da poter stilare lo slider.
 
-// Milestone 1:
-// Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 
 // Milestone 2:
 // Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
@@ -46,3 +46,44 @@ const images = [
 const upEl = document.getElementById("up");
 const downEl = document.getElementById("down");
 const activeImgEl = document.getElementById("active-img");
+const titleEl = document.getElementById("title");
+const descriptionEl = document.getElementById("description");
+
+
+// Milestone 1:
+// Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
+
+let index = 0;
+
+downEl.addEventListener('click', function(){
+
+    index++;
+
+    showSlide(images[index]);
+
+
+});
+
+upEl.addEventListener('click', function(){
+
+    index--;
+
+    showSlide(images[index]);
+
+
+});
+
+// FUNZIONI
+showSlide(images[index]);
+
+function showSlide(carousel) {
+
+    // console.log(carousel);
+
+    activeImgEl.src = carousel.image;
+
+    titleEl.innerText = carousel.title;
+
+    descriptionEl.innerText = carousel.text;
+
+};  
